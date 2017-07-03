@@ -4,5 +4,5 @@
     angular.module('TodoApp', ['ngAnimate']);
 
     angular.module('TodoApp')
-        .constant('APIPATH', 'http://quip-todos.herokuapp.com/');
+        .constant('APIPATH', 'https://quip-todos.herokuapp.com/');
 })();
