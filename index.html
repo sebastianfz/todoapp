@@ -1,0 +1,30 @@
+<!doctype html>
+<html ng-app="TodoApp">
+
+<head>
+    <title>ToDo App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/app.css" />
+</head>
+
+<body ng-controller="TodoController as todo" ng-cloak="">
+    <div class="container todo-container">
+        <div class="col-xs-12 col-sm-12 col-md-offset-2 col-md-8">
+            <div class="form-group todo-form">
+                <input type="text" class="form-control" ng-model="todo.newTodo.text" />
+                <button class="btn btn-xs btn-info todo-button" ng-disabled="!todo.newTodo.text" ng-click="todo.newTodo.text && todo.saveTodo()">Add To Do</button>
+            </div>
+            <div class="col-xs-12 todo-item" ng-repeat="item in todo.todoData track by $index">
+                <input ng-disabled="item.completed" type="checkbox" ng-model="item.completed" ng-click="todo.completeTodo($index,item)" />
+                <span style="margin-left: 5px;" ng-class="{ 'completed-task' : item.completed }">{{item.text}}</span>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controller/todoCtrl.js"></script>
+    <script src="js/service/todoService.js"></script>
+</body>
+
+</html>
